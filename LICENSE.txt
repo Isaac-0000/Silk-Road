@@ -1,0 +1,12 @@
+Copyright © 2025 Touchton Tech. LLC. All Rights Reserved.
+
+This repository and all its contents—including but not limited to source code, assets, art, music, story content, and documentation—are the exclusive intellectual property of Touchton Tech. LLC.
+
+Unauthorized reproduction, redistribution, or commercial use of any part of this project is strictly prohibited without prior written permission.
+
+Authorized collaborators may access, modify, and contribute to the project solely for the purpose of developing the game internally. Any use outside the scope of official development must be approved by the project lead(s).
+
+This project is not open source and is not licensed for public or third-party use.
+
+For licensing inquiries or permissions, contact: 
+
