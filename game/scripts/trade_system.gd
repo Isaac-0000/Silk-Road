@@ -1,7 +1,11 @@
-extends Node2D
+extends Node
 
-@onready var inventory_ui = $InventoryUI
+func _ready():
+	print("Trade system loaded.")
 
-func _input(event):
-	if event.is_action_pressed("toggle_inventory"):
-		inventory_ui.visible = !inventory_ui.visible
+# Add trade-related functions here, for example:
+func open_trade_menu(merchant_id):
+	print("Opening trade menu for:", merchant_id)
+
+func execute_trade(item_id, quantity):
+	print("Trading", quantity, "of", item_id)
