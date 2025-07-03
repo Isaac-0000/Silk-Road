@@ -1,5 +1,7 @@
-extends Node
+extends Node2D
 
-# Placeholder trading system logic
-func _ready():
-	print("Trade system loaded. Placeholder implementation.")
+@onready var inventory_ui = $InventoryUI
+
+func _input(event):
+	if event.is_action_pressed("toggle_inventory"):
+		inventory_ui.visible = !inventory_ui.visible
