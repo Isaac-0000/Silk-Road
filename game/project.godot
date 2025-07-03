@@ -1,0 +1,7 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly.
+config_version=4
+
+[application]
+config/name="Silk Road"
+run/main_scene="res://scenes/region_prototype.tscn"
