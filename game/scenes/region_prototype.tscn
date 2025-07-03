@@ -1,10 +1,136 @@
-[gd_scene format=3]
+[gd_scene load_steps=10 format=3 uid="uid://c4wy7v1d223e2"]
 
-[ext_resource path="res://scripts/trade_system.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://diwc7t8yaw4e5" path="res://scripts/trade_system.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c5f5jlayq3pgw" path="res://scenes/Player.tscn" id="2_traxv"]
+[ext_resource type="Texture2D" uid="uid://muqnehlfpinw" path="res://scenes/new_compressed_texture_2d.tres" id="3_traxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_traxv"]
+size = Vector2(132, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cxsj"]
+size = Vector2(73, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl3lj"]
+size = Vector2(45, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj6gw"]
+size = Vector2(130, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seuy6"]
+size = Vector2(100.5, 41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_traxv"]
+bg_color = Color(0.646683, 0.555465, 0.328343, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.479256, 0.372386, 0.227043, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_bottom_right = 3
 
 [node name="RegionPrototype" type="Node2D"]
-script = ExtResource(1)
+script = ExtResource("1")
 
-[node name="Label" type="Label" parent="."]
-position = Vector2(100, 100)
-text = "Welcome to the prototype region!"
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -578.0
+offset_top = -479.0
+offset_right = 573.0
+offset_bottom = 584.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_traxv")
+
+[node name="Player" parent="." instance=ExtResource("2_traxv")]
+scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="PondCollider" type="StaticBody2D" parent="."]
+position = Vector2(33, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PondCollider"]
+position = Vector2(192, 130.5)
+shape = SubResource("RectangleShape2D_traxv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PondCollider"]
+position = Vector2(300.5, 140.5)
+shape = SubResource("RectangleShape2D_4cxsj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PondCollider"]
+position = Vector2(125.5, 150.5)
+shape = SubResource("RectangleShape2D_vl3lj")
+
+[node name="TreeCollider" type="StaticBody2D" parent="."]
+position = Vector2(-250, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeCollider"]
+position = Vector2(4, -56.5)
+shape = SubResource("RectangleShape2D_sj6gw")
+
+[node name="TreeCollider2" type="StaticBody2D" parent="."]
+position = Vector2(-250, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeCollider2"]
+position = Vector2(-144, -350)
+shape = SubResource("RectangleShape2D_sj6gw")
+
+[node name="TreeCollider3" type="StaticBody2D" parent="."]
+position = Vector2(-250, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeCollider3"]
+position = Vector2(607, -373)
+shape = SubResource("RectangleShape2D_sj6gw")
+
+[node name="TreeCollider4" type="StaticBody2D" parent="."]
+position = Vector2(-250, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeCollider4"]
+position = Vector2(581, -78)
+shape = SubResource("RectangleShape2D_sj6gw")
+
+[node name="TreeCollider5" type="StaticBody2D" parent="."]
+position = Vector2(-250, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeCollider5"]
+position = Vector2(-103, 251)
+shape = SubResource("RectangleShape2D_sj6gw")
+
+[node name="BushCollider" type="StaticBody2D" parent="."]
+position = Vector2(78, 105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BushCollider"]
+position = Vector2(-243, -375.5)
+shape = SubResource("RectangleShape2D_seuy6")
+
+[node name="SmallTreeCollider" type="StaticBody2D" parent="."]
+position = Vector2(78, 105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallTreeCollider"]
+position = Vector2(336, 244)
+shape = SubResource("RectangleShape2D_seuy6")
+
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="InventoryUI"]
+offset_left = -355.0
+offset_top = -177.0
+offset_right = -55.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_traxv")
+
+[node name="Label" type="Label" parent="InventoryUI/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.273169, 0.229206, 0.120226, 1)
+text = "Backpack"
+
+[node name="ItemGrid" type="GridContainer" parent="InventoryUI/Panel"]
+layout_mode = 0
+offset_top = 29.0
+offset_right = 298.0
+offset_bottom = 359.0
+columns = 4
